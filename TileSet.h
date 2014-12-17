@@ -3,8 +3,8 @@
 
 using namespace::std;
 
-class TileSet :
-	public Tile
+class TileSet
+
 {
 public:
 	TileSet();

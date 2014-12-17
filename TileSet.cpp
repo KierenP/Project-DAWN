@@ -37,7 +37,7 @@ void TileSet::GenerateSprites()
 		for (int j = 0; j < MapSize.x; j++)
 		{
 			Tiles.at(i).at(j)->Sprite.setTexture(TextureMap);
-			Tiles.at(i).at(j)->Sprite.setTextureRect(sf::IntRect(TileSize.x * j, TileSize.y * i, TileSize.x, TileSize.y));
+			Tiles.at(i).at(j)->Sprite.setTextureRect(sf::IntRect(TileSize.x * (Tiles.at(i).at(j)->TileID % 16), TileSize.y * (Tiles.at(i).at(j)->TileID / 16), TileSize.x, TileSize.y));
 		}
 	}
 }
@@ -62,11 +62,11 @@ void TileSet::UpdateTiles()
 
 void TileSet::GenerateTiles()
 {
-	Tiles.resize = MapSize.y;
+	Tiles.resize(MapSize.y);
 
 	for (int i = 0; i < MapSize.y; i++)
 	{
-		Tiles.at(i).resize = MapSize.x;
+		Tiles.at(i).resize(MapSize.x);
 	}
 
 	for (int i = 0; i < MapSize.y; i++)
