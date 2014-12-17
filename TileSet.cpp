@@ -62,6 +62,13 @@ void TileSet::UpdateTiles()
 
 void TileSet::GenerateTiles()
 {
+	Tiles.resize = MapSize.y;
+
+	for (int i = 0; i < MapSize.y; i++)
+	{
+		Tiles.at(i).resize = MapSize.x;
+	}
+
 	for (int i = 0; i < MapSize.y; i++)
 	{
 		for (int j = 0; j < MapSize.x; j++)
