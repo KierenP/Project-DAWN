@@ -8,6 +8,9 @@ sf::Texture CharacterText;
 
 sf::RenderWindow window(sf::VideoMode(1920, 1080), "DAWN");
 
+sf::Clock GameGlock;
+float Delta;
+
 bool LeftPressed;
 bool RightPressed;
 bool UpPressed;
@@ -28,7 +31,9 @@ void KeyCheck();
 
 int main()
 {
-	MyTileset.MapSize = sf::Vector2f(10, 10);
+	//window.setFramerateLimit(60);
+
+	MyTileset.MapSize = sf::Vector2f(50, 50);
 	MyTileset.TileSize = sf::Vector2f(32, 32);
 
 	MyTileset.TextureMap.loadFromFile("Tileset2.png");
@@ -50,6 +55,9 @@ int main()
 		PollEvent();
 		Update();
 		Render();
+
+		Delta = GameGlock.getElapsedTime().asSeconds();
+		GameGlock.restart();
 	}
 }
 
@@ -156,19 +164,19 @@ void Update()
 
 	if (UpPressed || UGlide)
 	{
-		MyCharacter.Position.y -= 0.5;
+		MyCharacter.Position.y -= 192 * Delta;
 	}
 	if (DownPressed || DGlide)
 	{
-		MyCharacter.Position.y += 0.5;
+		MyCharacter.Position.y += 192 * Delta;
 	}
 	if (LeftPressed || LGlide)
 	{
-		MyCharacter.Position.x -= 0.5;
+		MyCharacter.Position.x -= 192 * Delta;
 	}
 	if (RightPressed || RGlide)
 	{
-		MyCharacter.Position.x += 0.5;
+		MyCharacter.Position.x += 192 * Delta;
 	}
 
 	if (MyCharacter.Position.y < 0)

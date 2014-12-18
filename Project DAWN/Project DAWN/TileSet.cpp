@@ -26,7 +26,7 @@ void TileSet::LoadFromFile()
 {
 	srand(time(NULL));
 
-	int Map[10][10] = 
+	/*int Map[10][10] = 
 	
 	{
 		{ 0, 0, 0, 0, 1, 1, 0, 0, 0, 0 },
@@ -39,13 +39,13 @@ void TileSet::LoadFromFile()
 		{ 9, 2, 2, 9, 2, 16, 16, 9, 9, 16},
 		{ 9, 16, 9, 16, 16, 16, 9, 16, 9, 16 },
 		{ 16, 16, 16, 9, 16, 9, 16, 16, 9, 9 }
-	};
+	};*/
 
 	for (int i = 0; i < MapSize.y; i++)
 	{
 		for (int j = 0; j < MapSize.x; j++)
 		{
-			Tiles.at(i).at(j)->TileID = Map[i][j];
+			Tiles.at(i).at(j)->TileID = rand() % 18;
 		}
 	}
 }
@@ -57,7 +57,7 @@ void TileSet::GenerateSprites()
 		for (int j = 0; j < MapSize.x; j++)
 		{
 			Tiles.at(i).at(j)->Sprite.setTexture(TextureMap);
-			Tiles.at(i).at(j)->Sprite.setTextureRect(sf::IntRect(TileSize.x * (Tiles.at(i).at(j)->TileID % 7), TileSize.y * (Tiles.at(i).at(j)->TileID / 7), TileSize.x, TileSize.y));
+			Tiles.at(i).at(j)->Sprite.setTextureRect(sf::IntRect(TileSize.x * (Tiles.at(i).at(j)->TileID % 6), TileSize.y * (Tiles.at(i).at(j)->TileID / 6), TileSize.x, TileSize.y));
 		}
 	}
 }
