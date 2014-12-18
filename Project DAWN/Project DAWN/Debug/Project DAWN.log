@@ -3,5 +3,5 @@ c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\
 c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\main.cpp(82): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
 c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\main.cpp(96): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
 c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\main.cpp(110): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\main.cpp(174): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\main.cpp(199): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
   Project DAWN.vcxproj -> C:\Users\kieren\Documents\Visual Studio 2013\Projects\Project DAWN\Debug\Project DAWN.exe

@@ -171,6 +171,31 @@ void Update()
 		MyCharacter.Position.x += 0.5;
 	}
 
+	if (MyCharacter.Position.y < 0)
+	{
+		MyCharacter.Position.y = 0;
+		UpPressed = false;
+	}
+
+	if (MyCharacter.Position.x < 0)
+	{
+		MyCharacter.Position.x = 0;
+		LeftPressed = false;
+	}
+
+	if (MyCharacter.Position.y > ((MyTileset.MapSize.y - 1) * MyTileset.TileSize.y))
+	{
+		MyCharacter.Position.y = ((MyTileset.MapSize.y - 1) * MyTileset.TileSize.y);
+		DownPressed = false;
+	}
+
+	if (MyCharacter.Position.x > ((MyTileset.MapSize.x - 1) * MyTileset.TileSize.x))
+	{
+		MyCharacter.Position.x = ((MyTileset.MapSize.x - 1) * MyTileset.TileSize.x);
+		RightPressed = false;
+	}
+
+
 	MyCharacter.Sprite.setPosition(sf::Vector2f(window.getSize().x / 2 - (CharacterText.getSize().x / 2), window.getSize().y / 2 - (CharacterText.getSize().y / 2)));
 	//MyCharacter.Sprite.setPosition(sf::Vector2f(0, 0));
 }
