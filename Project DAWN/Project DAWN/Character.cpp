@@ -3,6 +3,7 @@
 
 Character::Character()
 {
+	//Sprite.setOrigin(16, 16);
 }
 
 

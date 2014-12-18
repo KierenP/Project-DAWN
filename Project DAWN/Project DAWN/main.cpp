@@ -4,6 +4,7 @@
 
 TileSet MyTileset;
 Character MyCharacter;
+sf::Texture CharacterText;
 
 sf::RenderWindow window(sf::VideoMode(1920, 1080), "DAWN");
 
@@ -11,6 +12,14 @@ bool LeftPressed;
 bool RightPressed;
 bool UpPressed;
 bool DownPressed;
+
+bool LGlide;
+bool RGlide;
+bool UGlide;
+bool DGlide;
+
+float Xstop;
+float Ystop;
 
 void PollEvent();
 void Update();
@@ -22,7 +31,7 @@ int main()
 	MyTileset.MapSize = sf::Vector2f(10, 10);
 	MyTileset.TileSize = sf::Vector2f(32, 32);
 
-	MyTileset.TextureMap.loadFromFile("Tileset.png");
+	MyTileset.TextureMap.loadFromFile("Tileset2.png");
 
 	MyTileset.GenerateTiles();
 	MyTileset.LoadFromFile();
@@ -30,6 +39,10 @@ int main()
 	MyTileset.GenerateSprites();
 
 	MyCharacter.Position = sf::Vector2f(0, 0);
+
+	CharacterText.loadFromFile("Character.png");
+
+	MyCharacter.Sprite.setTexture(CharacterText);
 
 	while (window.isOpen())
 	{
@@ -47,29 +60,78 @@ void KeyCheck()
 		LeftPressed = true;
 	}
 	else
-		LeftPressed = false;
-
+	{
+		if (LeftPressed == true)
+		{
+			LeftPressed = false;
+			LGlide = true;
+			Xstop = int(MyCharacter.Position.x / 32) * 32;
+		}
+	}
+	
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		RightPressed = true;
 	}
 	else
-		RightPressed = false;
+	{
+		if (RightPressed == true)
+		{
+			RightPressed = false;
+			RGlide = true;
+			Xstop = int(MyCharacter.Position.x / 32 + 1) * 32;
+		}
+	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		UpPressed = true;
 	}
 	else
-		UpPressed = false;
+	{
+		if (UpPressed == true)
+		{
+			UpPressed = false;
+			UGlide = true;
+			Ystop = int(MyCharacter.Position.y / 32) * 32;
+		}
+	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
 		DownPressed = true;
 	}
 	else
-		DownPressed = false;
+	{
+		if (DownPressed == true)
+		{
+			DownPressed = false;
+			DGlide = true;
+			Ystop = int(MyCharacter.Position.y / 32 + 1) * 32;
+		}
+	}
 
+	if (MyCharacter.Position.x <= Xstop && LGlide)
+	{
+		LGlide = false;
+		MyCharacter.Position.x = Xstop;
+	}
+	if (MyCharacter.Position.x >= Xstop && RGlide)
+	{
+		RGlide = false;
+		MyCharacter.Position.x = Xstop;
+	}
+	if (MyCharacter.Position.y <= Ystop && UGlide)
+	{
+		UGlide = false;
+		MyCharacter.Position.y = Ystop;
+	}
+	if (MyCharacter.Position.y >= Ystop && DGlide)
+	{
+		DGlide = false;
+		MyCharacter.Position.y = Ystop;
+	}
+		
 }
 
 void PollEvent()
@@ -88,26 +150,29 @@ void Update()
 	{
 		for (int j = 0; j < MyTileset.MapSize.x; j++)
 		{
-			MyTileset.Tiles.at(i).at(j)->Sprite.setPosition(sf::Vector2f(j * MyTileset.TileSize.x - MyCharacter.Position.x + (window.getSize().x / 2), i * MyTileset.TileSize.y - MyCharacter.Position.y + (window.getSize().y / 2)));
+			MyTileset.Tiles.at(i).at(j)->Sprite.setPosition(sf::Vector2f(j * MyTileset.TileSize.x - int(MyCharacter.Position.x) + (window.getSize().x / 2) - (CharacterText.getSize().x / 2), i * MyTileset.TileSize.y - int(MyCharacter.Position.y) + (window.getSize().y / 2) - (CharacterText.getSize().y / 2)));
 		}
 	}
 
-	if (UpPressed)
+	if (UpPressed || UGlide)
 	{
 		MyCharacter.Position.y -= 0.5;
 	}
-	if (DownPressed)
+	if (DownPressed || DGlide)
 	{
 		MyCharacter.Position.y += 0.5;
 	}
-	if (LeftPressed)
+	if (LeftPressed || LGlide)
 	{
 		MyCharacter.Position.x -= 0.5;
 	}
-	if (RightPressed)
+	if (RightPressed || RGlide)
 	{
 		MyCharacter.Position.x += 0.5;
 	}
+
+	MyCharacter.Sprite.setPosition(sf::Vector2f(window.getSize().x / 2 - (CharacterText.getSize().x / 2), window.getSize().y / 2 - (CharacterText.getSize().y / 2)));
+	//MyCharacter.Sprite.setPosition(sf::Vector2f(0, 0));
 }
 
 void Render()
@@ -121,6 +186,8 @@ void Render()
 			window.draw(MyTileset.Tiles.at(i).at(j)->Sprite);
 		}
 	}
+
+	window.draw(MyCharacter.Sprite);
 
 	window.display();
 }
