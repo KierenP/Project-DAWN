@@ -11,12 +11,12 @@ sf::RenderWindow window(sf::VideoMode(1920, 1080), "DAWN");
 sf::Clock GameGlock;
 float Delta;
 
-bool LeftPressed;
+bool LeftPressed;		//Please annotate your work
 bool RightPressed;
 bool UpPressed;
 bool DownPressed;
 
-bool LGlide;
+bool LGlide;     //Please annotate your work
 bool RGlide;
 bool UGlide;
 bool DGlide;
@@ -24,7 +24,7 @@ bool DGlide;
 float Xstop;
 float Ystop;
 
-void PollEvent();
+void PollEvent();		//Please annotate your work
 void Update();
 void Render();
 void KeyCheck();
@@ -87,7 +87,7 @@ void KeyCheck()
 		{
 			RightPressed = false;
 			RGlide = true;
-			Xstop = int(MyCharacter.Position.x / 32 + 1) * 32;
+			Xstop = int(MyCharacter.Position.x / 32 + 1) * 32;		//Please annotate your work
 		}
 	}
 
@@ -101,7 +101,7 @@ void KeyCheck()
 		{
 			UpPressed = false;
 			UGlide = true;
-			Ystop = int(MyCharacter.Position.y / 32) * 32;
+			Ystop = int(MyCharacter.Position.y / 32) * 32;		//Please annotate your work
 		}
 	}
 
