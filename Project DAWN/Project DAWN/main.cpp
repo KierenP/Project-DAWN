@@ -33,10 +33,10 @@ int main()
 {
 	//window.setFramerateLimit(60);
 
-	MyTileset.MapSize = sf::Vector2f(50, 50); //hard coding
+	MyTileset.MapSize = sf::Vector2f(64, 64); //hard coding
 	MyTileset.TileSize = sf::Vector2f(32, 32);
 
-	MyTileset.TextureMap.loadFromFile("Tileset2.png");
+	MyTileset.TextureMap.loadFromFile("Tileset.png");
 
 	MyTileset.GenerateTiles();
 	MyTileset.LoadFromFile();

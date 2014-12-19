@@ -1,7 +1,10 @@
-﻿  main.cpp
-c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\main.cpp(76): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\main.cpp(90): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\main.cpp(104): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\main.cpp(118): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\main.cpp(207): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+﻿  TileSet.cpp
+c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(55): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(56): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(60): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(61): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(110): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(122): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(147): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(151): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
   Project DAWN.vcxproj -> C:\Users\kieren\documents\visual studio 2013\Projects\Project DAWN\Debug\Project DAWN.exe

@@ -24,9 +24,9 @@ TileSet::~TileSet()
 
 void TileSet::LoadFromFile()
 {
-	srand(time(NULL));
+	/*srand(time(NULL));
 
-	/*int Map[10][10] = 
+	int Map[10][10] = 
 	
 	{
 		{ 0, 0, 0, 0, 1, 1, 0, 0, 0, 0 },
@@ -39,13 +39,75 @@ void TileSet::LoadFromFile()
 		{ 9, 2, 2, 9, 2, 16, 16, 9, 9, 16},
 		{ 9, 16, 9, 16, 16, 16, 9, 16, 9, 16 },
 		{ 16, 16, 16, 9, 16, 9, 16, 16, 9, 9 }
-	};*/
+	};
 
 	for (int i = 0; i < MapSize.y; i++)
 	{
 		for (int j = 0; j < MapSize.x; j++)
 		{
 			Tiles.at(i).at(j)->TileID = rand() % 18; //choose from the 18 tiles in our current tileset at random
+		}
+	}*/
+
+    vector<vector<float>> Map1;
+    vector<vector<float>> Map2;
+
+    Map1.resize(MapSize.y);
+    Map2.resize(MapSize.y);
+
+    for (int i = 0; i < MapSize.y; i++)
+    {
+        Map1[i].resize(MapSize.x);
+        Map2[i].resize(MapSize.x);
+    }
+
+    // creating random noise
+
+    for (int i = 0; i < MapSize.y; i++)
+    {
+        for (int j = 0; j < MapSize.x; j++)
+        {
+            Map1[i][j] = float(rand() % 6);
+            Map2[i][j] = Map1[i][j];
+        }
+    }
+
+    //sofening the map
+
+	int Sofeningfactor = 4;
+	int Sofeningrate = 1;
+
+	for (int x = 0; x < 2; x++)
+	{
+		for (int i = 0; i < MapSize.y; i += Sofeningfactor)
+		{
+			for (int j = 0; j < MapSize.x; j += Sofeningfactor)
+			{
+				float Averageheight = 0;
+
+				for (int k = 0; k < Sofeningfactor * Sofeningfactor; k++)
+				{
+					Averageheight += Map2[i + (k % Sofeningfactor)][j + (k / Sofeningfactor)];
+				}
+
+				Averageheight = Averageheight / (Sofeningfactor * Sofeningfactor);
+
+				for (int k = 0; k < Sofeningfactor * Sofeningfactor; k++)
+				{
+					Sofeningrate = rand() % 4 + 1;
+					Map2[i + (k % Sofeningfactor)][j + (k / Sofeningfactor)] = ((Map2[i + (k % Sofeningfactor)][j + (k / Sofeningfactor)] * Sofeningrate) + Averageheight) / (1 + Sofeningrate);
+				}
+			}
+		}
+
+		Sofeningfactor = Sofeningfactor * 2;
+	}
+
+	for (int i = 0; i < MapSize.y; i++)
+	{
+		for (int j = 0; j < MapSize.x; j++)
+		{
+				Tiles[i][j]->TileID = Map2[i][j];
 		}
 	}
 }
@@ -57,7 +119,7 @@ void TileSet::GenerateSprites()
 		for (int j = 0; j < MapSize.x; j++)
 		{
 			Tiles.at(i).at(j)->Sprite.setTexture(TextureMap);
-			Tiles.at(i).at(j)->Sprite.setTextureRect(sf::IntRect(TileSize.x * (Tiles.at(i).at(j)->TileID % 6), TileSize.y * (Tiles.at(i).at(j)->TileID / 6), TileSize.x, TileSize.y));
+			Tiles.at(i).at(j)->Sprite.setTextureRect(sf::IntRect(TileSize.x * (Tiles.at(i).at(j)->TileID % 3), TileSize.y * (Tiles.at(i).at(j)->TileID / 3), TileSize.x, TileSize.y));
 		}
 	}
 }
