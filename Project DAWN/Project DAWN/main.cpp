@@ -2,38 +2,38 @@
 #include "Character.h"
 #include "TileSet.h"
 
-TileSet MyTileset;
+TileSet MyTileset; 
 Character MyCharacter;
-sf::Texture CharacterText;
+sf::Texture CharacterText; 
 
 sf::RenderWindow window(sf::VideoMode(1920, 1080), "DAWN");
 
 sf::Clock GameGlock;
 float Delta;
 
-bool LeftPressed;
+bool LeftPressed; //is the left button pressed? if so, this will be true. if not it will be false
 bool RightPressed;
 bool UpPressed;
 bool DownPressed;
 
-bool LGlide;
-bool RGlide;
+bool LGlide; //the character will glide till it locks to the tile. If this is true, the charecter is "gliding" till it snaps to the tile
+bool RGlide; //right
 bool UGlide;
 bool DGlide;
 
-float Xstop;
+float Xstop; //the co-ordinate that the character will stop at
 float Ystop;
 
-void PollEvent();
-void Update();
-void Render();
-void KeyCheck();
+void PollEvent(); //check window events (close)
+void Update();    //game logic
+void Render();    //rendering to the window
+void KeyCheck();  //
 
 int main()
 {
 	//window.setFramerateLimit(60);
 
-	MyTileset.MapSize = sf::Vector2f(50, 50);
+	MyTileset.MapSize = sf::Vector2f(50, 50); //hard coding
 	MyTileset.TileSize = sf::Vector2f(32, 32);
 
 	MyTileset.TextureMap.loadFromFile("Tileset2.png");
@@ -56,7 +56,7 @@ int main()
 		Update();
 		Render();
 
-		Delta = GameGlock.getElapsedTime().asSeconds();
+        Delta = GameGlock.getElapsedTime().asSeconds(); //Delta is the time from the last frame
 		GameGlock.restart();
 	}
 }
@@ -69,11 +69,11 @@ void KeyCheck()
 	}
 	else
 	{
-		if (LeftPressed == true)
+		if (LeftPressed == true) //if true, then we begin to "glide" till we snap to the tile grid (32x32)
 		{
-			LeftPressed = false;
+			LeftPressed = false; 
 			LGlide = true;
-			Xstop = int(MyCharacter.Position.x / 32) * 32;
+			Xstop = int(MyCharacter.Position.x / 32) * 32; //the X co-ordinate that the character will stop at
 		}
 	}
 	
@@ -117,29 +117,7 @@ void KeyCheck()
 			DGlide = true;
 			Ystop = int(MyCharacter.Position.y / 32 + 1) * 32;
 		}
-	}
-
-	if (MyCharacter.Position.x <= Xstop && LGlide)
-	{
-		LGlide = false;
-		MyCharacter.Position.x = Xstop;
-	}
-	if (MyCharacter.Position.x >= Xstop && RGlide)
-	{
-		RGlide = false;
-		MyCharacter.Position.x = Xstop;
-	}
-	if (MyCharacter.Position.y <= Ystop && UGlide)
-	{
-		UGlide = false;
-		MyCharacter.Position.y = Ystop;
-	}
-	if (MyCharacter.Position.y >= Ystop && DGlide)
-	{
-		DGlide = false;
-		MyCharacter.Position.y = Ystop;
-	}
-		
+	}	
 }
 
 void PollEvent()
@@ -159,12 +137,13 @@ void Update()
 		for (int j = 0; j < MyTileset.MapSize.x; j++)
 		{
 			MyTileset.Tiles.at(i).at(j)->Sprite.setPosition(sf::Vector2f(j * MyTileset.TileSize.x - int(MyCharacter.Position.x) + (window.getSize().x / 2) - (CharacterText.getSize().x / 2), i * MyTileset.TileSize.y - int(MyCharacter.Position.y) + (window.getSize().y / 2) - (CharacterText.getSize().y / 2)));
+            //pixles from edge - Character position + (1/2 window width) - (1/2 character width)         
 		}
 	}
 
 	if (UpPressed || UGlide)
 	{
-		MyCharacter.Position.y -= 192 * Delta;
+		MyCharacter.Position.y -= 192 * Delta; //192 pixles per second
 	}
 	if (DownPressed || DGlide)
 	{
@@ -179,9 +158,9 @@ void Update()
 		MyCharacter.Position.x += 192 * Delta;
 	}
 
-	if (MyCharacter.Position.y < 0)
+	if (MyCharacter.Position.y < 0) //Has it gone of the tileset?
 	{
-		MyCharacter.Position.y = 0;
+		MyCharacter.Position.y = 0; //move it back
 		UpPressed = false;
 	}
 
@@ -206,6 +185,27 @@ void Update()
 
 	MyCharacter.Sprite.setPosition(sf::Vector2f(window.getSize().x / 2 - (CharacterText.getSize().x / 2), window.getSize().y / 2 - (CharacterText.getSize().y / 2)));
 	//MyCharacter.Sprite.setPosition(sf::Vector2f(0, 0));
+
+	if (MyCharacter.Position.x <= Xstop && LGlide) //has it reached the glide stop position?
+	{
+		LGlide = false;
+		MyCharacter.Position.x = Xstop;            //then stop the character
+	}
+	if (MyCharacter.Position.x >= Xstop && RGlide)
+	{
+		RGlide = false;
+		MyCharacter.Position.x = Xstop;
+	}
+	if (MyCharacter.Position.y <= Ystop && UGlide)
+	{
+		UGlide = false;
+		MyCharacter.Position.y = Ystop;
+	}
+	if (MyCharacter.Position.y >= Ystop && DGlide)
+	{
+		DGlide = false;
+		MyCharacter.Position.y = Ystop;
+	}
 }
 
 void Render()
@@ -216,11 +216,11 @@ void Render()
 	{
 		for (int j = 0; j < MyTileset.MapSize.x; j++)
 		{
-			window.draw(MyTileset.Tiles.at(i).at(j)->Sprite);
+			window.draw(MyTileset.Tiles.at(i).at(j)->Sprite); //draw all the tiles
 		}
 	}
 
-	window.draw(MyCharacter.Sprite);
+	window.draw(MyCharacter.Sprite); //draw the sprite
 
 	window.display();
 }

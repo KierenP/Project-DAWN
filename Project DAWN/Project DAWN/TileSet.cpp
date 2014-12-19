@@ -45,7 +45,7 @@ void TileSet::LoadFromFile()
 	{
 		for (int j = 0; j < MapSize.x; j++)
 		{
-			Tiles.at(i).at(j)->TileID = rand() % 18;
+			Tiles.at(i).at(j)->TileID = rand() % 18; //choose from the 18 tiles in our current tileset at random
 		}
 	}
 }
@@ -62,7 +62,7 @@ void TileSet::GenerateSprites()
 	}
 }
 
-void TileSet::UpdateTiles()
+void TileSet::UpdateTiles() //Create tiles based on the TileID of the particular tile
 {
 	for (int i = 0; i < MapSize.y; i++)
 	{
@@ -71,7 +71,7 @@ void TileSet::UpdateTiles()
 			switch (Tiles.at(i).at(j)->TileID)
 			{
 			case 0:
-				Tiles.at(i).at(j) = new Dirt();
+				Tiles.at(i).at(j) = new Dirt(); 
 			default:
 				break;
 			}
@@ -80,7 +80,7 @@ void TileSet::UpdateTiles()
 	}
 }
 
-void TileSet::GenerateTiles()
+void TileSet::GenerateTiles() //Populate the vector
 {
 	Tiles.resize(MapSize.y);
 
