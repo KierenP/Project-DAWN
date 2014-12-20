@@ -1,14 +1,15 @@
 #include "Dirt.h"
 
 
-Dirt::Dirt()
+Grass::Grass()
 {
 	IsSolid = false;
 	IsVisible = true;
-	TileID = 0;
+	SpeedVar = 1;
+	TileID = 2;
 }
 
 
-Dirt::~Dirt()
+Grass::~Grass()
 {
 }

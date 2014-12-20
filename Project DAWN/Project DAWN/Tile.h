@@ -11,5 +11,6 @@ public:
 	sf::Sprite Sprite;
 	bool IsVisible;
 	bool IsSolid;
+	float SpeedVar;
 };
 

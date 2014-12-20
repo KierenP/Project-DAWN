@@ -143,19 +143,19 @@ void Update()
 
 	if (UpPressed || UGlide)
 	{
-		MyCharacter.Position.y -= 192 * Delta; //192 pixles per second
+		MyCharacter.Position.y -= 192 * Delta * MyTileset.Tiles[int((MyCharacter.Position.y + CharacterText.getSize().y / 2) / 32)][int((MyCharacter.Position.x + CharacterText.getSize().x / 2) / 32)]->SpeedVar; //192 pixles per second * Tile since last frame * tile speed
 	}
 	if (DownPressed || DGlide)
 	{
-		MyCharacter.Position.y += 192 * Delta;
+		MyCharacter.Position.y += 192 * Delta * MyTileset.Tiles[int((MyCharacter.Position.y + CharacterText.getSize().y / 2) / 32)][int((MyCharacter.Position.x + CharacterText.getSize().x / 2) / 32)]->SpeedVar;
 	}
 	if (LeftPressed || LGlide)
 	{
-		MyCharacter.Position.x -= 192 * Delta;
+		MyCharacter.Position.x -= 192 * Delta * MyTileset.Tiles[int((MyCharacter.Position.y + CharacterText.getSize().y / 2) / 32)][int((MyCharacter.Position.x + CharacterText.getSize().x / 2) / 32)]->SpeedVar;
 	}
 	if (RightPressed || RGlide)
 	{
-		MyCharacter.Position.x += 192 * Delta;
+		MyCharacter.Position.x += 192 * Delta * MyTileset.Tiles[int((MyCharacter.Position.y + CharacterText.getSize().y / 2) / 32)][int((MyCharacter.Position.x + CharacterText.getSize().x / 2) / 32)]->SpeedVar;
 	}
 
 	if (MyCharacter.Position.y < 0) //Has it gone of the tileset?

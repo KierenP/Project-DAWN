@@ -85,19 +85,35 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
-    <ClCompile Include="Dirt.cpp" />
+    <ClCompile Include="Coast.cpp" />
+    <ClCompile Include="Grass.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Ocean.cpp" />
     <ClCompile Include="PerlinNoise.cpp" />
+    <ClCompile Include="RedFlower.cpp" />
+    <ClCompile Include="Sand.cpp" />
+    <ClCompile Include="Snow.cpp" />
+    <ClCompile Include="Stone.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileSet.cpp" />
+    <ClCompile Include="Tree.cpp" />
+    <ClCompile Include="YellowFlower.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
-    <ClInclude Include="Dirt.h" />
+    <ClInclude Include="Coast.h" />
+    <ClInclude Include="Grass.h" />
+    <ClInclude Include="Ocean.h" />
     <ClInclude Include="PerlinNoise.h" />
+    <ClInclude Include="RedFlower.h" />
+    <ClInclude Include="Sand.h" />
     <ClInclude Include="SFML header.h" />
+    <ClInclude Include="Snow.h" />
+    <ClInclude Include="Stone.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileSet.h" />
+    <ClInclude Include="Tree.h" />
+    <ClInclude Include="YellowFlower.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,13 @@
 #include "TileSet.h"
-#include "Dirt.h"
+#include "Grass.h"
+#include "Coast.h"
+#include "Ocean.h"
+#include "RedFlower.h"
+#include "Sand.h"
+#include "Stone.h"
+#include "Tree.h"
+#include "YellowFlower.h"
+#include "Snow.h"
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
@@ -143,6 +151,18 @@ void TileSet::LoadFromFile()
 		for (int j = 0; j < MapSize.x; j++)
 		{
 			Tiles[i][j]->TileID = (Noise.Get(float(i) / 64, float(j) / 64) + 3);
+
+			if (Tiles[i][j]->TileID == 2)
+			{
+				int random = rand() % 16;
+
+				if (random == 0)
+					Tiles[i][j]->TileID = 7;
+				if (random == 1)
+					Tiles[i][j]->TileID = 8;
+				if (random > 12)
+					Tiles[i][j]->TileID = 6;
+			}
 		}
 	}
 
@@ -169,7 +189,32 @@ void TileSet::UpdateTiles() //Create tiles based on the TileID of the particular
 			switch (Tiles.at(i).at(j)->TileID)
 			{
 			case 0:
-				Tiles.at(i).at(j) = new Dirt(); 
+				Tiles.at(i).at(j) = new Snow(); 
+				break;
+			case 1:
+				Tiles.at(i).at(j) = new Stone();
+				break;
+			case 2:
+				Tiles.at(i).at(j) = new Grass();
+				break;
+			case 3:
+				Tiles.at(i).at(j) = new Sand();
+				break;
+			case 4:
+				Tiles.at(i).at(j) = new Coast();
+				break;
+			case 5:
+				Tiles.at(i).at(j) = new Ocean();
+				break;
+			case 6:
+				Tiles.at(i).at(j) = new Tree();
+				break;
+			case 7:
+				Tiles.at(i).at(j) = new RedFlower();
+				break;
+			case 8:
+				Tiles.at(i).at(j) = new YellowFlower();
+				break;
 			default:
 				break;
 			}
