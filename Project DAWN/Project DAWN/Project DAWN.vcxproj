@@ -87,12 +87,14 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Dirt.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PerlinNoise.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileSet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
     <ClInclude Include="Dirt.h" />
+    <ClInclude Include="PerlinNoise.h" />
     <ClInclude Include="SFML header.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileSet.h" />

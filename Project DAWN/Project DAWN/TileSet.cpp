@@ -3,6 +3,7 @@
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
+#include "PerlinNoise.h"
 
 
 TileSet::TileSet()
@@ -49,7 +50,7 @@ void TileSet::LoadFromFile()
 		}
 	}*/
 
-    vector<vector<float>> Map1;
+    /*vector<vector<float>> Map1;
     vector<vector<float>> Map2;
 
     Map1.resize(MapSize.y);
@@ -109,7 +110,42 @@ void TileSet::LoadFromFile()
 		{
 				Tiles[i][j]->TileID = Map2[i][j];
 		}
+	}*/
+
+	/*vector<vector<float>> Noise;
+	vector<vector<float>> Total;
+
+	Total.resize(MapSize.x);
+
+	for (int i = 0; i < MapSize.x; i++)
+	{
+		Total[i].resize(MapSize.x);
 	}
+	
+
+	for (int x = 0; x < 5; x++)
+	{
+		int frequency = pow(2, x);
+		int amplitude = pow(1 / 2, x);
+
+		Noise.resize(frequency);
+
+		for (int i = 0; i < MapSize.y; i++)
+		{
+			Noise
+		}
+	}*/
+
+    Perlin Noise(4, 4, 4, rand() % 100);
+
+	for (int i = 0; i < MapSize.y; i++)
+	{
+		for (int j = 0; j < MapSize.x; j++)
+		{
+			Tiles[i][j]->TileID = (Noise.Get(float(i) / 64, float(j) / 64) + 3);
+		}
+	}
+
 }
 
 void TileSet::GenerateSprites()
