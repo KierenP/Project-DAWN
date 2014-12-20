@@ -1,5 +1,77 @@
-#include "PerlinNoise.h"
+/*#include "PerlinNoise.h"
 
+Perlin::Perlin(int octaves, float freq, float amp, int seed, sf::Vector2f size)
+{
+	mOctaves = octaves;
+	mFrequency = freq;
+	mAmplitude = amp;
+	mSeed = seed;
+	mSize = size;
+
+	srand(mSeed);
+}
+
+Perlin::~Perlin()
+{
+
+}
+
+float Perlin::Smooth(sf::Vector2f Pos)
+{
+	float corners = (Noise(Pos.y - 1, Pos.x - 1) + Noise(Pos.y + 1, Pos.x - 1) + Noise(Pos.y - 1, Pos.x + 1) + Noise(Pos.y + 1, Pos.x + 1)) / 16;
+	float edges = (Noise(Pos.y, Pos.x + 1) + Noise(Pos.y, Pos.x - 1) + Noise(Pos.y + 1, Pos.x) + Noise(Pos.y - 1, Pos.x)) / 8;
+	float center = (Noise(Pos.y, Pos.x)) / 4;
+
+	return corners + edges + center;
+}
+
+float Perlin::Noise(float x, float y)
+{
+	float a = float(rand() % 2000 - 1000) / 1000;
+	return a;
+}
+
+float Perlin::CosInterpolate(float a, float b, float x)
+{
+	float ft = x * 3.1415927;
+	float f = float(1 - cos(ft)) * 0.5;
+
+	return  a*(1 - f) + b*f;
+}
+
+float Perlin::Interpolate(float x, float y)
+{
+	int intX = x;
+	float fracX = x - intX;
+
+	int intY = y;
+	float fracY = y - intY;
+
+	float p1 = Smooth(sf::Vector2f(intX, intY));
+	float p2 = Smooth(sf::Vector2f(intX + 1, intY));
+	float p3 = Smooth(sf::Vector2f(intX, intY + 1));
+	float p4 = Smooth(sf::Vector2f(intX + 1, intY + 1));
+
+	float i1 = CosInterpolate(p1, p2, fracX);
+	float i2 = CosInterpolate(p3, p4, fracY);
+
+	return CosInterpolate(i1, i2, fracY);
+}
+
+float Perlin::CalculatePerlin(sf::Vector2f Pos)
+{
+	float total = 0;
+
+	for (int i = 0; i < mOctaves; i++)
+	{
+		float frequency = pow(2, i);
+		float amplitude = pow(1/2, i);
+
+		total = total + Interpolate(Pos.x / frequency, Pos.y / frequency) * amplitude;
+	}
+
+	return total;
+}*/
 
 /* coherent noise function over 1, 2 or 3 dimensions */
 /* (copyright Ken Perlin) */
@@ -7,6 +79,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+
+#include "PerlinNoise.h"
 
 #define B SAMPLE_SIZE
 #define BM (SAMPLE_SIZE-1)

@@ -1,3 +1,39 @@
+/*#pragma once
+
+#include <vector>
+#include "SFML header.h"
+
+using namespace::std;
+
+class Perlin
+{
+public:
+
+	Perlin(int octaves, float freq, float amp, int seed, sf::Vector2f size);
+	~Perlin();
+
+	float Get(sf::Vector2f Pos)
+	{
+		return CalculatePerlin(Pos);
+	};
+
+	float Noise(float x, float y);
+
+private:
+
+	float Interpolate(float x, float y);
+	float CosInterpolate(float a, float b, float x);
+	float Smooth(sf::Vector2f Pos);
+	float CalculatePerlin(sf::Vector2f Pos);
+	
+	int   mOctaves;
+	float mFrequency;
+	float mAmplitude;
+	int   mSeed;
+	sf::Vector2f mSize;
+};
+*/
+
 #ifndef PERLIN_H_
 
 #define PERLIN_H_

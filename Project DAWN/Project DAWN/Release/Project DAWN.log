@@ -1,11 +1,27 @@
 ﻿  Character.cpp
-  Dirt.cpp
+  Coast.cpp
+  Grass.cpp
   main.cpp
+main.cpp(76): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+main.cpp(90): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+main.cpp(104): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+main.cpp(118): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+main.cpp(186): warning C4244: 'argument' : conversion from 'unsigned int' to 'float', possible loss of data
+  Ocean.cpp
+  PerlinNoise.cpp
+  RedFlower.cpp
+  Sand.cpp
+  Snow.cpp
+  Stone.cpp
   Tile.cpp
   TileSet.cpp
-TileSet.cpp(40): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-TileSet.cpp(65): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-TileSet.cpp(69): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+TileSet.cpp(61): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+TileSet.cpp(68): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+TileSet.cpp(81): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+TileSet.cpp(131): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+TileSet.cpp(135): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
+  Tree.cpp
+  YellowFlower.cpp
   Generating code
   Finished generating code
-  Project DAWN.vcxproj -> C:\Users\kieren\Documents\GitHub\Project-DAWN\Project DAWN\Release\Project DAWN.exe
+  Project DAWN.vcxproj -> C:\Users\kieren\documents\visual studio 2013\Projects\Project DAWN\Release\Project DAWN.exe

@@ -58,111 +58,14 @@ void TileSet::LoadFromFile()
 		}
 	}*/
 
-    /*vector<vector<float>> Map1;
-    vector<vector<float>> Map2;
-
-    Map1.resize(MapSize.y);
-    Map2.resize(MapSize.y);
-
-    for (int i = 0; i < MapSize.y; i++)
-    {
-        Map1[i].resize(MapSize.x);
-        Map2[i].resize(MapSize.x);
-    }
-
-    // creating random noise
-
-    for (int i = 0; i < MapSize.y; i++)
-    {
-        for (int j = 0; j < MapSize.x; j++)
-        {
-            Map1[i][j] = float(rand() % 6);
-            Map2[i][j] = Map1[i][j];
-        }
-    }
-
-    //sofening the map
-
-	int Sofeningfactor = 4;
-	int Sofeningrate = 1;
-
-	for (int x = 0; x < 2; x++)
-	{
-		for (int i = 0; i < MapSize.y; i += Sofeningfactor)
-		{
-			for (int j = 0; j < MapSize.x; j += Sofeningfactor)
-			{
-				float Averageheight = 0;
-
-				for (int k = 0; k < Sofeningfactor * Sofeningfactor; k++)
-				{
-					Averageheight += Map2[i + (k % Sofeningfactor)][j + (k / Sofeningfactor)];
-				}
-
-				Averageheight = Averageheight / (Sofeningfactor * Sofeningfactor);
-
-				for (int k = 0; k < Sofeningfactor * Sofeningfactor; k++)
-				{
-					Sofeningrate = rand() % 4 + 1;
-					Map2[i + (k % Sofeningfactor)][j + (k / Sofeningfactor)] = ((Map2[i + (k % Sofeningfactor)][j + (k / Sofeningfactor)] * Sofeningrate) + Averageheight) / (1 + Sofeningrate);
-				}
-			}
-		}
-
-		Sofeningfactor = Sofeningfactor * 2;
-	}
-
-	for (int i = 0; i < MapSize.y; i++)
-	{
-		for (int j = 0; j < MapSize.x; j++)
-		{
-				Tiles[i][j]->TileID = Map2[i][j];
-		}
-	}*/
-
-	/*vector<vector<float>> Noise;
-	vector<vector<float>> Total;
-
-	Total.resize(MapSize.x);
-
-	for (int i = 0; i < MapSize.x; i++)
-	{
-		Total[i].resize(MapSize.x);
-	}
-	
-
-	for (int x = 0; x < 5; x++)
-	{
-		int frequency = pow(2, x);
-		int amplitude = pow(1 / 2, x);
-
-		Noise.resize(frequency);
-
-		for (int i = 0; i < MapSize.y; i++)
-		{
-			Noise
-		}
-	}*/
-
-    Perlin Noise(4, 4, 4, rand() % 100);
+	srand(time(NULL));
+	Perlin Noise(4, 4, 3, rand() % 100);
 
 	for (int i = 0; i < MapSize.y; i++)
 	{
 		for (int j = 0; j < MapSize.x; j++)
 		{
 			Tiles[i][j]->TileID = (Noise.Get(float(i) / 64, float(j) / 64) + 3);
-
-			if (Tiles[i][j]->TileID == 2)
-			{
-				int random = rand() % 16;
-
-				if (random == 0)
-					Tiles[i][j]->TileID = 7;
-				if (random == 1)
-					Tiles[i][j]->TileID = 8;
-				if (random > 12)
-					Tiles[i][j]->TileID = 6;
-			}
 		}
 	}
 
