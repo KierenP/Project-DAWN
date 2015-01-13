@@ -5,7 +5,7 @@ Grass::Grass()
 {
 	IsSolid = true;
 	IsVisible = true;
-	SpeedVar = 1;
+	SpeedVar = 3;
 	TileID = 2;
 }
 
