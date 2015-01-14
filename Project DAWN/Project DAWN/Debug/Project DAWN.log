@@ -1,7 +1,37 @@
-﻿  TileSet.cpp
-c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(61): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(68): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(81): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(131): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-c:\users\kieren\documents\visual studio 2013\projects\project dawn\project dawn\tileset.cpp(135): warning C4244: 'argument' : conversion from 'float' to 'unsigned int', possible loss of data
-  Project DAWN.vcxproj -> C:\Users\kieren\documents\visual studio 2013\Projects\Project DAWN\Debug\Project DAWN.exe
+﻿Build started 7/01/2015 6:07:46 PM.
+     1>Project "C:\Users\Anthony\Documents\GitHub\Project-DAWN\Project DAWN\Project DAWN\Project DAWN.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\SFML-2.1\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Character.cpp Coast.cpp Grass.cpp main.cpp Ocean.cpp PerlinNoise.cpp RedFlower.cpp Sand.cpp Snow.cpp Stone.cpp Tile.cpp TileSet.cpp Tree.cpp YellowFlower.cpp
+         YellowFlower.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         Tree.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         TileSet.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         Tile.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         Stone.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         Snow.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         Sand.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         RedFlower.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         PerlinNoise.cpp
+         Ocean.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         main.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\main.cpp(1): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+         Grass.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         Coast.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         Character.cpp
+     1>c:\users\anthony\documents\github\project-dawn\project dawn\project dawn\sfml header.h(3): fatal error C1083: Cannot open include file: 'SFML\Graphics.hpp': No such file or directory
+         Generating Code...
+     1>Done Building Project "C:\Users\Anthony\Documents\GitHub\Project-DAWN\Project DAWN\Project DAWN\Project DAWN.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.88
